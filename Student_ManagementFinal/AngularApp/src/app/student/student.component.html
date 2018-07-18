@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <div class="card-content white-text">
+              <div class="row">
+                <div class="col s5">
+                  <form #studentForm="ngForm" (ngSubmit)="onSubmit(studentForm)">
+                    <input type="hidden" name="_id" #_id="ngModel" 
+                    [(ngModel)]="studentService.selectedStudent._id">
+                    
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" (keypress)="numberOnly($event)" name="rollNo" #name="ngModel" 
+                        [(ngModel)]="studentService.selectedStudent.rollNo"
+                         placeholder="Enter Roll No." required>
+                        <label>Roll No. 
+                          <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+      
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" onkeypress='return ((event.charCode >= 65 
+                        && event.charCode <= 90)
+                        || (event.charCode >= 97 
+                        && event.charCode <= 122) 
+                        || (event.charCode == 32))' 
+                        name="name" #name="ngModel" 
+                        [(ngModel)]="studentService.selectedStudent.name"
+                         placeholder="Enter Full name" required>
+                        <label>Name :
+                          <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+      
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" onkeypress='return ((event.charCode >= 65 
+                        && event.charCode <= 90)
+                        || (event.charCode >= 97 
+                        && event.charCode <= 122) 
+                        || (event.charCode == 32))' 
+                        name="branch" #name="ngModel" 
+                        [(ngModel)]="studentService.selectedStudent.branch"
+                         placeholder="Eg.- CSE,ECE,ME,CE..." required>
+                        <label>Branch :
+                          <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+      
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" (keypress)="numberOnly($event)" name="age" #name="ngModel" 
+                        [(ngModel)]="studentService.selectedStudent.age"
+                         placeholder="Enter Your Age" required maxlength="2">
+                        <label>Age :
+                          <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+                    
+      
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" onkeypress='return ((event.charCode >= 65 
+                        && event.charCode <= 90)
+                        || (event.charCode >= 97 
+                        && event.charCode <= 122) 
+                        || (event.charCode == 32))' name="gender" #name="ngModel" 
+                        [(ngModel)]="studentService.selectedStudent.gender"
+                         placeholder="Male or Female" required maxlength="6">
+                         
+                         
+                         
+      
+                        <label>Gender :
+                          <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+      
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" (keypress)="numberOnly($event)" name="contactNo" #name="ngModel" 
+                        [(ngModel)]="studentService.selectedStudent.contactNo"
+                         placeholder="Enter Contact No." required maxlength="12">
+                        <label>Contact No. : 
+                          <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+          
+                    
+      
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <button class="btn btn-custom right" type="button" (click)="resetForm(studentForm)">Reset</button>
+                        <button class="btn btn-custom right" type="submit" [disabled]="!studentForm.valid">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                
+                <div class="col s7">
+                    <table class="responsive-table highlight">
+                        <thead>
+                          <tr>
+                            <th>Roll No.</th>
+                            <th>Name</th>
+                            <th>Branch</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Contact No.</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tr *ngFor="let stu of studentService.students">
+                          <td>{{stu.rollNo}}</td>
+                          <td>{{stu.name}}</td>
+                          <td>{{stu.branch}}</td>
+                          <td>{{stu.age}}</td>
+                          <td>{{stu.gender}}</td>
+                          <td>{{stu.contactNo}}</td>
+                          <td>
+                              <a class="action-btn" (click)="onEdit(stu)">
+                                <i class="material-icons">edit</i>
+                              </a>
+                              <a class="action-btn" (click)="onDelete(stu._id,studentForm)">
+                                <i class="material-icons">delete</i>
+                              </a>
+                            </td>
+                        </tr>
+                       
+                      </table>
+                      
+                </div>
+               
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

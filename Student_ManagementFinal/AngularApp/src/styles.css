@@ -1,0 +1,84 @@
+You can add global styles to this file, and also import other style files
+form div.input-field input{
+    padding-left: 15px !important;
+    color: #25a297;
+}
+
+input.ng-invalid.ng-dirty{
+    border-bottom-color : #e91e63 !important;
+    box-shadow: 0 1px 0 0 #e91e63 !important;
+}
+
+.input-field>label{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.btn-custom,
+.btn-custom:hover,
+.btn-custom:focus
+{
+    font-size: 1.1rem;
+    margin : 0px 5px;
+    border: #fff solid 1px;
+    background-color: black; 
+}
+
+div.card{
+    background:none;
+    border-radius:5px;
+  border:0px solid grey;
+}
+
+.vl {
+    border-left: 2px solid white;
+    height: 400px;
+}
+
+a.action-btn{
+    color:white ;
+    margin: 0px 5px;
+
+}
+a.action-btn:hover{
+    cursor: pointer;
+}
+
+#toast-container {
+    top: auto !important;
+    right: auto !important;
+    bottom: 10%;
+    left:7%;
+}
+::-webkit-input-placeholder
+{
+    color: black;
+}
+.heading
+{
+    margin: 20px;
+    color: white;
+    font-weight: bold;
+
+}
+body{
+    background-image: url(assets/img.jpg);
+    margin-top:-15px;
+}
+h3
+{
+font-family: Arial, Helvetica, sans-serif;
+margin-top:-5px;
+font-size:35px;
+
+}
+h3:hover
+{
+font-family: Arial, Helvetica, sans-serif;
+margin-top:0px;
+font-size:35px;
+color:black;
+}
+img{
+vertical-align: middle;
+}
